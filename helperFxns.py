@@ -47,7 +47,11 @@ def filterAln(hd, seq):
     seqPosFilter = seq[:, np.sum(seq == 21, 0)/len(seq) < 0.5]
     hdFilter, ixKeep = [], []
     for i in range(len(seqPosFilter)):
-        if (np.sum(seqPosFilter[i] == 21)/len(seqPosFilter[i] < 0.5)):
+        # print(np.sum(seqPosFilter[i] == 21)/len(seqPosFilter[i]))
+        if (np.sum(seqPosFilter[i] == 21)/len(seqPosFilter[i]) < 0.5):
+            # print(np.sum(seqPosFilter[i] == 21))
+            # print(len(seqPosFilter[i]))
+
             hdFilter.append(hd[i])
             ixKeep.append(i)
     seqFilter = seqPosFilter[ixKeep, :]
