@@ -21,6 +21,7 @@ def lett2num(msa_lett, code='ACDEFGHIKLMNPQRSTVWY-'):
                 msa_num[s, i] = lett2index[lett]
     return msa_num
 
+    
 
 def alg2bin(alg, N_aa=21):
     ''' Translate an alignment of size M x L where the amino acids are represented
@@ -63,7 +64,7 @@ def simMat(binalg, Npos):
     ''' Given a binarized alignment (from alg2bin) and the number of alignment positions,
     compute a sequence identity matrix'''
     smat = (binalg.dot(binalg.T)).todense()/Npos
-    return smat
+    return smat.A
 
 
 def num2lett(msa_num, code='ACDEFGHIKLMNPQRSTVWY-'):
